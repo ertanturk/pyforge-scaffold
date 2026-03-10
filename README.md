@@ -2,6 +2,12 @@
 
 `pyforge` is a CLI tool that scaffolds modern Python projects with sensible defaults for packaging, linting, testing, typing, and CI.
 
+> **Note:** This is a personal/educational project. It is not intended to compete with established
+> scaffold tools.
+
+[![PyPI version](https://img.shields.io/pypi/v/pyforge-benchmark.svg)](https://pypi.org/project/pyforge-scaffold/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 ## What It Generates
 
 - Interactive project setup with input validation
