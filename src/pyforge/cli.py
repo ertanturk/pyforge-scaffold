@@ -253,10 +253,10 @@ def _build_pyproject(details: ProjectDetails, module_name: str) -> str:
         f"{optional_deps}\n"
         "]\n\n"
         "[project.urls]\n"
-        f'Homepage = "https://github.com/{module_name}/{details["name"]}"\n'
-        f'Repository = "https://github.com/{module_name}/{details["name"]}"\n'
-        f'Documentation = "https://github.com/{module_name}/{details["name"]}#readme"\n'
-        f'Issues = "https://github.com/{module_name}/{details["name"]}/issues"\n\n'
+        f'Homepage = "https://github.com/{details["author"]}/{details["name"]}"\n'
+        f'Repository = "https://github.com/{details["author"]}/{details["name"]}"\n'
+        f'Documentation = "https://github.com/{details["author"]}/{details["name"]}#readme"\n'
+        f'Issues = "https://github.com/{details["author"]}/{details["name"]}/issues"\n\n'
         "[project.scripts]\n"
         f'{details["name"]} = "{module_name}.cli:main"\n\n'
         "[tool.ruff]\n"
