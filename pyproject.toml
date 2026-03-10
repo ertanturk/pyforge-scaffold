@@ -53,10 +53,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ertanturk/pyforge"
-Repository = "https://github.com/ertanturk/pyforge"
-Documentation = "https://github.com/ertanturk/pyforge#readme"
-Issues = "https://github.com/ertanturk/pyforge/issues"
+Homepage = "https://github.com/ertanturk/pyforge-scaffold"
+Repository = "https://github.com/ertanturk/pyforge-scaffold"
+Documentation = "https://github.com/ertanturk/pyforge-scaffold#readme"
+Issues = "https://github.com/ertanturk/pyforge-scaffold/issues"
 
 [project.scripts]
 pyforge = "pyforge.cli:main"
