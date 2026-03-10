@@ -1,26 +1,25 @@
 # pyforge
 
-pyforge is a lightweight CLI that generates a modern Python project scaffold
-with sensible defaults for packaging, linting, testing, typing, and CI.
+`pyforge` is a CLI tool that scaffolds modern Python projects with sensible defaults for packaging, linting, testing, typing, and CI.
 
-## Features
+## What It Generates
 
 - Interactive project setup with input validation
-- src-layout package structure
-- PEP 621 pyproject.toml generation
-- Optional dynamic versioning helper at scripts/setup.py
-- Optional GitHub Actions CI workflow
-- Ready-to-use test and quality tool configuration
+- `src/`-layout package structure
+- PEP 621-compliant `pyproject.toml`
+- Optional dynamic versioning helper in `scripts/setup.py`
+- Optional GitHub Actions workflow
+- Ready-to-use quality tooling configuration
 
-## Install
+## Installation
 
-For local development:
+### Install from source (development)
 
 ```bash
 python -m pip install -e .
 ```
 
-Global user install (recommended for CLI usage):
+### Install for CLI usage
 
 Linux/macOS:
 
@@ -34,7 +33,7 @@ Windows:
 py -m pip install --user pyforge
 ```
 
-If you use pipx:
+With `pipx`:
 
 ```bash
 pipx install pyforge
@@ -42,62 +41,58 @@ pipx install pyforge
 
 ## Usage
 
-Run the CLI:
+Run:
 
 ```bash
 pyforge
 ```
 
-Answer the prompts, review the summary, and confirm generation.
+Follow the prompts, review the summary, and confirm project generation.
 
-By default, pyforge can also bootstrap a .venv inside the generated project and
-install either:
+The generated project can optionally include a local virtual environment and install:
 
 - `-e .[dev]` when recommended packages are enabled
 - `-e .` otherwise
 
-## Development Setup
+## Development
 
 ```bash
 python -m pip install -e .[dev]
 pre-commit install
 ```
 
-## Build Package
-
-Create source and wheel distributions:
+## Build Distributions
 
 ```bash
-python -m build
+python -m pip install --upgrade pip setuptools wheel build
+python3 scripts/setup.py sdist bdist_wheel
 ```
 
-The artifacts will be created under dist/.
+Build artifacts are written to `dist/`.
 
-## Validate Package Metadata
-
-Check long description and distribution metadata:
+## Validate Distributions
 
 ```bash
 python -m twine check dist/*
 ```
 
-## Upload To PyPI
+## Publish to PyPI
 
-1. Create an API token in your PyPI account.
-2. Set it as an environment variable:
+1. Create a PyPI API token.
+2. Export credentials:
 
 ```bash
 export TWINE_USERNAME=__token__
 export TWINE_PASSWORD=pypi-XXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-3. Upload:
+3. Upload distributions:
 
 ```bash
 python -m twine upload dist/*
 ```
 
-Use TestPyPI first if you want a dry run:
+Optional TestPyPI dry run:
 
 ```bash
 python -m twine upload --repository testpypi dist/*
