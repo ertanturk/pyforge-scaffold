@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyforge"
+dynamic = ["version"]
+description = "A lightweight CLI tool for generating modern Python project structures with best practices built in"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+dependencies = []
+keywords = [
+  "cli",
+  "generator",
+  "scaffolding",
+  "boilerplate"
+]
+
+authors = [
+    { name = "Ertan Tunç Türk", email = "ertantuncturk61@gmail.com" },
+]
+
+maintainers = [
+    { name = "Ertan Tunç Türk", email = "ertantuncturk61@gmail.com" },
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Typing :: Typed",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Build Tools",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "mypy",
+    "pytest",
+    "pytest-cov",
+    "bandit",
+    "pip-audit",
+    "pre-commit",
+    "coverage"
+]
+
+[project.urls]
+Homepage = "https://github.com/ertanturk/pyforge"
+Repository = "https://github.com/ertanturk/pyforge"
+Documentation = "https://github.com/ertanturk/pyforge#readme"
+Issues = "https://github.com/ertanturk/pyforge/issues"
+
+[project.scripts]
+pyforge = "pyforge.cli:main"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+# E: pycodestyle errors
+# F: Pyflakes
+# I: isort
+# B: flake8-bugbear
+# UP: pyupgrade
+select = ["E", "F", "I", "B", "UP"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["."]
+omit = ["tests/*", ".venv/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]
+# Skip B101 to allow assert statements, which are common in tests
+skips = ["B101"]

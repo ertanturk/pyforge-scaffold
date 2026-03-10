@@ -1,0 +1,7 @@
+ruff
+mypy
+pytest
+bandit
+pip-audit
+pre-commit
+coverage
